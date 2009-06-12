@@ -26,6 +26,7 @@ module Prawn
                           
   # The base source directory for Prawn as installed on the system
   BASEDIR = File.expand_path(File.join(dir, '..', '..'))
+  VERSION = '4.99.2'
   
   extend self
 

@@ -51,8 +51,10 @@ spec = Gem::Specification.new do |spec|
   spec.platform     = Gem::Platform::RUBY
   spec.summary      = "A fast and nimble PDF generator for Ruby"
   spec.files        =  Dir.glob("{examples,lib,spec,vendor,data}/**/**/*") + ["Rakefile"]
-  spec.require_path = "lib"
-
+  spec.require_path = 'lib'
+  
+  spec.add_dependency('prawn-layout')
+  
   spec.test_files   = Dir[ "test/*_test.rb" ]
   spec.has_rdoc     = true
   spec.extra_rdoc_files = %w{README LICENSE COPYING}
