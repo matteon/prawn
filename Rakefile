@@ -4,7 +4,7 @@ require 'rake/testtask'
 require "rake/rdoctask"
 require "rake/gempackagetask"  
 
-PRAWN_VERSION = "0.4.99" 
+PRAWN_VERSION = '0.4.99.2'
 
 task :default => [:test]
        
@@ -23,7 +23,7 @@ task :stats do
 	                    ["Specs", "spec"] ).to_s
 end
 
-desc "genrates documentation"
+desc "generates documentation"
 Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include( "README",
                            "COPYING",
@@ -46,24 +46,23 @@ task :examples do
 end
 
 spec = Gem::Specification.new do |spec|
-  spec.name = "prawn-core"
-  spec.version = PRAWN_VERSION
-  spec.platform = Gem::Platform::RUBY
-  spec.summary = "A fast and nimble PDF generator for Ruby"
-  spec.files =  Dir.glob("{examples,lib,spec,vendor,data}/**/**/*") +
-                      ["Rakefile"]
+  spec.name         = 'prawn'
+  spec.version      = PRAWN_VERSION
+  spec.platform     = Gem::Platform::RUBY
+  spec.summary      = "A fast and nimble PDF generator for Ruby"
+  spec.files        =  Dir.glob("{examples,lib,spec,vendor,data}/**/**/*") + ["Rakefile"]
   spec.require_path = "lib"
 
-  spec.test_files = Dir[ "test/*_test.rb" ]
-  spec.has_rdoc = true
+  spec.test_files   = Dir[ "test/*_test.rb" ]
+  spec.has_rdoc     = true
   spec.extra_rdoc_files = %w{README LICENSE COPYING}
   spec.rdoc_options << '--title' << 'Prawn Documentation' <<
                        '--main'  << 'README' << '-q'
-  spec.author = "Gregory Brown"
-  spec.email = "  gregory.t.brown@gmail.com"
+  spec.author       = "Gregory Brown"
+  spec.email        = "gregory.t.brown@gmail.com"
   spec.rubyforge_project = "prawn"
-  spec.homepage = "http://prawn.majesticseacreature.com"
-  spec.description = <<END_DESC
+  spec.homepage     = "http://prawn.majesticseacreature.com"
+  spec.description  = <<END_DESC
   Prawn is a fast, tiny, and nimble PDF generator for Ruby
 END_DESC
 end
